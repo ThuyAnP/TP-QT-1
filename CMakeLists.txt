@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(TP-QT-1 VERSION 0.1 LANGUAGES CXX)
+project(TP1_Intro_QT VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -22,31 +22,31 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(TP-QT-1
+    qt_add_executable(TP1_Intro_QT
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET TP-QT-1 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET TP1_Intro_QT APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(TP-QT-1 SHARED
+        add_library(TP1_Intro_QT SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(TP-QT-1
+        add_executable(TP1_Intro_QT
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(TP-QT-1 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(TP1_Intro_QT PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-set_target_properties(TP-QT-1 PROPERTIES
+set_target_properties(TP1_Intro_QT PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -54,10 +54,10 @@ set_target_properties(TP-QT-1 PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-install(TARGETS TP-QT-1
+install(TARGETS TP1_Intro_QT
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(TP-QT-1)
+    qt_finalize_executable(TP1_Intro_QT)
 endif()

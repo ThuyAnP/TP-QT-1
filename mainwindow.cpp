@@ -8,7 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // initialisation
-    ui->EtatTension->setText("Arrêt");
+    ui->DemarrageDrone->setDisabled(true);
+    ui->EtatTension->setText("Hors tension");
+    ui->EtatTension->setDisabled(false);
     clickTension = false;
 }
 
@@ -25,16 +27,17 @@ void MainWindow::on_MiseSousTension_clicked()
         // modification du texte
         ui->EtatTension->setText("En tension");
 
-        // on met le texte à l'état inactif puis on positionne la variable
+        // on met le texte à l'état actif puis on positionne la variable
         ui->EtatTension->setDisabled(true);
+        ui->DemarrageDrone->setDisabled(false);
         clickTension = true;
     }
     else
     {
         // modification du texte
-        ui->EtatTension->setText("A l'arrêt");
+        ui->EtatTension->setText("Mise sous tension");
 
-        // on met le texte à l'état inactif puis on positionne la variable
+        // on met le texte à l'état actif puis on positionne la variable
         ui->EtatTension->setDisabled(false);
         clickTension = false;
     }

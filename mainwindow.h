@@ -20,6 +20,8 @@ private slots:
 
     void on_DemarrageDrone_clicked();
 
+    void on_DemarrageDrone_pressed();
+
 private:
     Ui::MainWindow *ui;
     bool clickTension;
